@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -232,7 +233,7 @@
 
   .breakdown-header p {
     font-size: 13px;
-    color: #444;
+    color: #86868b;
     font-weight: 300;
   }
 
@@ -285,7 +286,7 @@
 
   .bi-text span {
     font-size: 12px;
-    color: #555;
+    color: #86868b;
     line-height: 1.55;
     font-weight: 300;
   }
@@ -490,7 +491,7 @@
     margin-bottom: 8px;
   }
 
-  .tier.featured .tier-name { color: #3d3d42; }
+  .tier.featured .tier-name { color: #86868b; }
 
   .tier-price {
     font-size: 56px;
@@ -510,7 +511,7 @@
     font-weight: 300;
   }
 
-  .tier.featured .tier-note { color: #3d3d42; }
+  .tier.featured .tier-note { color: #86868b; }
 
   .tier-div {
     height: 1px;
@@ -540,6 +541,28 @@
   }
 
   .tier-list li:last-child { border-bottom: none; }
+
+  .tier-btn {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    padding: 14px 24px;
+    border-radius: 980px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    background: var(--black);
+    color: #ffffff;
+    transition: opacity 0.15s;
+  }
+
+  .tier-btn:hover { opacity: 0.8; }
+
+  .tier-btn-featured {
+    background: var(--blue);
+    color: #ffffff;
+  }
 
   .tier-list li::before {
     content: '';
@@ -955,6 +978,7 @@
         <li>One 60-minute training session</li>
         <li>Claude Max — $100/mo paid by you directly</li>
       </ul>
+      <a href="https://buy.stripe.com/3cI28q71H1wJcPc08S1sQ00" target="_blank" class="tier-btn">Get Started — $1,500</a>
     </div>
     <div class="tier featured">
       <div class="tier-pill">Most Popular</div>
@@ -970,6 +994,7 @@
         <li>Remote troubleshooting via TeamViewer anytime</li>
         <li>You never think about it — it just runs</li>
       </ul>
+      <a href="https://buy.stripe.com/5kQ6oG99P0sF8yWaNw1sQ01" target="_blank" class="tier-btn tier-btn-featured">Get Started — $2,500</a>
     </div>
   </div>
 
@@ -1021,7 +1046,7 @@
       <div class="footer-brand-desc">Independent GTM consulting and AI-driven sales infrastructure for B2B businesses. Built by Nate Shelly.</div>
     </div>
     <div class="footer-links">
-      <a href="mailto:nate.shelly@njsmgmt.com" class="footer-email">nate.shelly@njsmgmt.com</a>
+      <a href="/cdn-cgi/l/email-protection#ee808f9a8bc09d868b828297ae80849d8389839ac08d8183" class="footer-email"><span class="__cf_email__" data-cfemail="9bf5faeffeb5e8f3fef7f7e2dbf5f1e8f6fcf6efb5f8f4f6">[email&#160;protected]</span></a>
       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ24awX8ZLzArKr3LAf86LDOlzzpy9NT8Wi3pFJSjwzIduOquo4Ma7jKjFO5CGNxSnfTjQnHQsrh" target="_blank" class="cta-btn">Book a Call</a>
     </div>
   </div>
@@ -1031,7 +1056,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const benchmarks = {
     professional: [0.32, 0.18],
     financial:    [0.30, 0.17],
@@ -1087,13 +1112,4 @@
       Math.round(ar * 100) + '% acceptance × ' + Math.round(rr * 100) + '% reply rate';
     document.getElementById('r-pipeline').textContent = fmt(pipeline);
     document.getElementById('r-pipeline-sub').textContent =
-      'Based on ' + Math.round(closeRate * 100) + '% close rate · ' + (convos * closeRate).toFixed(1) + ' deals/mo';
-    document.getElementById('r-cpm').textContent =
-      (convos > 0 ? '$' + apexCpm : '—') + ' vs $' + bdrCpm;
-  }
-
-  updateACV(); updateClose(); updateSends(); calc();
-</script>
-
-</body>
-</html>
+      'Based on ' + Math.round(closeRate * 100) + '% close rate ·
