@@ -145,7 +145,7 @@
   /* ── STATS ── */
   .stats-bar {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     border-top: 1px solid rgba(255,255,255,0.07);
   }
 
@@ -806,12 +806,16 @@
       <span class="stat-label">Connection<br>Acceptance Rate</span>
     </div>
     <div class="stat">
-      <span class="stat-num">16%</span>
+      <span class="stat-num">18%</span>
       <span class="stat-label">DM<br>Reply Rate</span>
     </div>
     <div class="stat">
       <span class="stat-num">$16</span>
       <span class="stat-label">Cost Per<br>Meeting Booked</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">12%</span>
+      <span class="stat-label">DM-to-Meeting<br>Rate</span>
     </div>
     <div class="stat">
       <span class="stat-num">$0</span>
@@ -1006,7 +1010,7 @@
         <div class="roi-card">
           <div class="roi-card-label">Conversations Started / Month</div>
           <div class="roi-card-value" id="r-convos">6</div>
-          <div class="roi-card-sub" id="r-convos-sub">30% acceptance × 16% reply rate</div>
+          <div class="roi-card-sub" id="r-convos-sub">35% acceptance × 18% reply rate</div>
         </div>
         <div class="roi-card dark">
           <div class="roi-card-label">Est. Pipeline Generated / Month</div>
@@ -1021,7 +1025,7 @@
       </div>
     </div>
     <div class="roi-footnote">
-      Benchmarks: 30% connection acceptance · 16% DM reply rate · $100/mo infrastructure · BDR at $72K/yr fully loaded sending ~11 connects/day · $16 cost per meeting booked
+      Benchmarks: 35% connection acceptance · 18% DM reply rate · $100/mo infrastructure · BDR at $72K/yr fully loaded sending ~11 connects/day · $16 cost per meeting booked
     </div>
   </div>
 
@@ -1134,13 +1138,13 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const benchmarks = {
     professional: [0.32, 0.18],
-    financial:    [0.30, 0.17],
-    insurance:    [0.28, 0.15],
+    financial:    [0.30, 0.18],
+    insurance:    [0.28, 0.16],
     realestate:   [0.33, 0.19],
     hr:           [0.35, 0.20],
     marketing:    [0.34, 0.18],
-    legal:        [0.27, 0.14],
-    other:        [0.30, 0.16],
+    legal:        [0.27, 0.16],
+    other:        [0.30, 0.18],
   };
 
   const BDR_ANNUAL = 72000;
