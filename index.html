@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex — Automated LinkedIn Prospecting by NJS MGMT</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f5f7;
+    --white: #ffffff;
+    --black: #1d1d1f;
+    --dark: #000000;
+    --mid: #6e6e73;
+    --light-mid: #86868b;
+    --light: #d2d2d7;
+    --lighter: #e8e8ed;
+    --card: #ffffff;
+    --dark-card: #111111;
+    --dark-border: #2c2c2e;
+    --blue: #0071e3;
+    --blue-hover: #0077ed;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--black);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: #000;
+    padding: 100px 48px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--light-mid);
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 .line1 { color: #ffffff; display: block; }
+  .hero h1 .line2 { color: #ffffff; display: block; opacity: 0.45; }
+
+  .hero-sub {
+    font-size: 19px;
+    font-weight: 300;
+    color: #6e6e73;
+    max-width: 520px;
+    margin: 0 auto 60px;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-sub strong { color: #c0c0c5; font-weight: 400; }
+
+  /* ── STATS ── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .stat {
+    padding: 36px 16px 40px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    display: block;
+    letter-spacing: -0.035em;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #86868b;
+    line-height: 1.45;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 32px 40px;
+  }
+
+  /* ── SECTION HEADER ── */
+  .sh {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .sh-eye {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .sh-title {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+  }
+
+  .sh-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--mid);
+    margin-top: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 80px;
+  }
+
+  .step {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 32px 26px;
+    border: 1px solid var(--lighter);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+
+  .step-num {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+  }
+
+  .step h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 10px;
+    letter-spacing: -0.015em;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.68;
+    font-weight: 300;
+  }
+
+  /* ── BREAKDOWN ── */
+  .breakdown {
+    background: #000;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 80px;
+  }
+
+  .breakdown-header {
+    padding: 36px 40px 30px;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .breakdown-header h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #f5f5f7;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .breakdown-header p {
+    font-size: 13px;
+    color: #444;
+    font-weight: 300;
+  }
+
+  .bk-badge {
+    background: var(--blue);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 980px;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+
+  .breakdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bi {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 28px;
+    border-bottom: 1px solid #111;
+    border-right: 1px solid #111;
+  }
+
+  .breakdown-grid > .bi:nth-child(even) { border-right: none; }
+  .breakdown-grid > .bi:nth-last-child(-n+2) { border-bottom: none; }
+
+  .bi-check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-size: 10px; font-weight: 700;
+    color: #fff;
+  }
+
+  .bi-text strong {
+    display: block;
+    font-size: 13px; font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 3px;
+    letter-spacing: -0.01em;
+  }
+
+  .bi-text span {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* ── ROI CALCULATOR ── */
+  .roi-wrap {
+    background: var(--card);
+    border-radius: 24px;
+    border: 1px solid var(--lighter);
+    overflow: hidden;
+    margin-bottom: 80px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .roi-header {
+    background: #000;
+    padding: 32px 40px 28px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .roi-header .sh-eye { text-align: left; margin-bottom: 8px; }
+
+  .roi-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f5f5f7;
+    letter-spacing: -0.02em;
+  }
+
+  .roi-body {
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    background: var(--card);
+  }
+
+  .roi-inputs { display: flex; flex-direction: column; gap: 26px; }
+
+  .roi-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 10px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .roi-field select {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--light);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .roi-field select:focus { border-color: var(--blue); }
+
+  .slider-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+
+  .slider-val {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.02em;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 3px;
+    background: var(--lighter);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--blue);
+    box-shadow: 0 1px 6px rgba(0,113,227,0.3);
+    cursor: pointer;
+    transition: box-shadow 0.15s;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 1px 12px rgba(0,113,227,0.5);
+  }
+
+  .roi-results { display: flex; flex-direction: column; gap: 10px; }
+
+  .roi-card {
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1px solid var(--lighter);
+  }
+
+  .roi-card.dark {
+    background: #000;
+    border-color: #000;
+  }
+
+  .roi-card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 5px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .roi-card.dark .roi-card-label { color: #444; }
+
+  .roi-card-value {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .roi-card.dark .roi-card-value { color: #ffffff; }
+
+  .roi-card-sub {
+    font-size: 12px;
+    color: var(--mid);
+    font-weight: 300;
+  }
+
+  .roi-card.dark .roi-card-sub { color: #444; }
+
+  .roi-footnote {
+    padding: 16px 40px;
+    border-top: 1px solid var(--lighter);
+    font-size: 11px;
+    color: var(--light-mid);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.02em;
+    background: var(--bg);
+  }
+
+  /* ── PRICING ── */
+  .pricing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 80px;
+  }
+
+  .tier {
+    background: var(--card);
+    border-radius: 22px;
+    border: 1px solid var(--lighter);
+    padding: 36px 32px;
+  }
+
+  .tier.featured {
+    background: #000;
+    border-color: #000;
+  }
+
+  .tier-pill {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 13px;
+    border-radius: 980px;
+    margin-bottom: 18px;
+    letter-spacing: -0.005em;
+  }
+
+  .tier-name {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 8px;
+  }
+
+  .tier.featured .tier-name { color: #3d3d42; }
+
+  .tier-price {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .tier.featured .tier-price { color: #ffffff; }
+
+  .tier-note {
+    font-size: 13px;
+    color: var(--mid);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .tier.featured .tier-note { color: #3d3d42; }
+
+  .tier-div {
+    height: 1px;
+    background: var(--lighter);
+    margin-bottom: 22px;
+  }
+
+  .tier.featured .tier-div { background: #1a1a1a; }
+
+  .tier-list { list-style: none; }
+
+  .tier-list li {
+    font-size: 14px;
+    color: var(--mid);
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 300;
+    border-bottom: 1px solid var(--lighter);
+    letter-spacing: -0.005em;
+  }
+
+  .tier.featured .tier-list li {
+    color: #6e6e73;
+    border-bottom-color: #1a1a1a;
+  }
+
+  .tier-list li:last-child { border-bottom: none; }
+
+  .tier-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--blue);
+    flex-shrink: 0;
+  }
+
+  /* ── REQUIREMENTS ── */
+  .reqs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 80px;
+  }
+
+  .req {
+    background: var(--card);
+    border-radius: 20px;
+    border: 1px solid var(--lighter);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .req-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+  }
+
+  .req-icon svg { width: 22px; height: 22px; }
+
+  .req h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 10px;
+    letter-spacing: -0.015em;
+  }
+
+  .req p {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #000;
+    padding: 0 48px;
+  }
+
+  .footer-top {
+    padding: 48px 0 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .footer-brand-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f5f5f7;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  .footer-brand-desc {
+    font-size: 13px;
+    color: #86868b;
+    font-weight: 300;
+    max-width: 260px;
+    line-height: 1.5;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .footer-email {
+    font-size: 12px;
+    color: #86868b;
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+    transition: color 0.15s;
+  }
+
+  .footer-email:hover { color: #f5f5f7; }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 28px;
+    border-radius: 980px;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: background 0.15s;
+  }
+
+  .cta-btn:hover { background: var(--blue-hover); }
+
+  .footer-bottom {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: #2a2a2a;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+  }
+
+  .footer-legal {
+    font-size: 11px;
+    color: #2a2a2a;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .steps, .pricing, .reqs { grid-template-columns: 1fr; }
+    .breakdown-grid { grid-template-columns: 1fr; }
+    .bi { border-right: none !important; }
+    .roi-body { grid-template-columns: 1fr; gap: 32px; }
+    .hero { padding: 72px 24px 0; }
+    footer { padding: 0 24px; }
+    .content { padding: 64px 20px 32px; }
+    .roi-header, .roi-body, .roi-footnote { padding-left: 24px; padding-right: 24px; }
+    .breakdown-header { padding: 28px 24px; }
+    .footer-links { align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">
+    <span class="hero-eyebrow-dot"></span>
+    NJS MGMT — Apex System
+  </p>
+  <h1>
+    <span class="line1">LinkedIn Outreach.</span>
+    <span class="line2">On Autopilot.</span>
+  </h1>
+  <p class="hero-sub">
+    Stop spending hours on manual prospecting. Apex finds the right people, researches <strong>live signals that get attention</strong>, and books meetings automatically — while you focus on closing.
+  </p>
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">35%+</span>
+      <span class="stat-label">Connection<br>Acceptance Rate</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">16%</span>
+      <span class="stat-label">DM<br>Reply Rate</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">$20</span>
+      <span class="stat-label">Cost Per<br>Meeting Booked</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">$0</span>
+      <span class="stat-label">BDR Salary<br>Required</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- HOW IT WORKS -->
+  <div class="sh">
+    <div class="sh-eye">How It Works</div>
+    <div class="sh-title">Three steps. Fully automated.</div>
+    <div class="sh-sub">Set it up once. Let it run every day.</div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">Step 01</div>
+      <h3>Prospect & Connect</h3>
+      <p>Every day Apex finds targeted decision-makers matching your ideal customer profile and sends blank connect requests automatically — no note, no spam, maximum acceptance rate.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 02</div>
+      <h3>Research & Message</h3>
+      <p>The moment someone accepts, Apex researches live signals — a recent post, a funding round, a product launch — and sends a personalized DM referencing that signal within hours.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 03</div>
+      <h3>Track & Follow Up</h3>
+      <p>Every action logs to a live Google Sheet dashboard. Automated follow-up messages go out 5–10 days later to anyone who hasn't responded. Nothing falls through the cracks.</p>
+    </div>
+  </div>
+
+  <!-- SETUP BREAKDOWN -->
+  <div class="sh">
+    <div class="sh-eye">What We Build For You</div>
+    <div class="sh-title">Every detail. Configured for your business.</div>
+    <div class="sh-sub">12 deliverables — configured, tested, and running before handoff.</div>
+  </div>
+  <div class="breakdown">
+    <div class="breakdown-header">
+      <div>
+        <h3>Complete Setup — Done For You</h3>
+        <p>Configured remotely via TeamViewer. You don't touch a line of code.</p>
+      </div>
+      <div class="bk-badge">12 Deliverables</div>
+    </div>
+    <div class="breakdown-grid">
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Dedicated Chrome Profile</strong>
+          <span>Isolated browser environment configured exclusively for automation — never interferes with your daily work</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Claude Desktop Setup</strong>
+          <span>AI engine installed and configured with all required integrations and memory settings for your use case</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>ICP Definition Session</strong>
+          <span>60-minute session to define your ideal customer profile — titles, industries, company sizes, and verticals</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Signal Research Prompts</strong>
+          <span>Custom prompts that surface live LinkedIn signals — posts, announcements, funding, launches — before every DM</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>DM Framework Built for Your Voice</strong>
+          <span>Outreach messaging tuned to your tone — peer-to-peer, signal-referenced, under 300 characters</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Automated Follow-Up Sequence</strong>
+          <span>Second-touch messages sent automatically 5–10 days after initial DM with a fresh signal for non-responders</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Google Sheet Live Dashboard</strong>
+          <span>Real-time tracking of every connect, acceptance, DM, reply, and meeting booked — with calculated metrics</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Apps Script Web App</strong>
+          <span>Custom backend on your Google account — receives data from Apex and writes it automatically after every action</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Exclusion List Logic</strong>
+          <span>System reads your existing contacts before every run — never sends a duplicate request to anyone already in your pipeline</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Run Schedule & Rules</strong>
+          <span>Configured to skip weekends automatically — outreach only runs on working days at natural intervals</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Calibration Run & QA</strong>
+          <span>Full end-to-end test run before handoff — we verify connects send, DMs land, and data logs correctly</span>
+        </div>
+      </div>
+      <div class="bi">
+        <div class="bi-check">✓</div>
+        <div class="bi-text">
+          <strong>Training & Handoff Session</strong>
+          <span>Walkthrough of the live system, dashboard, how to trigger runs, and how to handle replies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI CALCULATOR -->
+  <div class="sh">
+    <div class="sh-eye">ROI Calculator</div>
+    <div class="sh-title">See what Apex generates for your business.</div>
+    <div class="sh-sub">Adjust the inputs to match your situation.</div>
+  </div>
+  <div class="roi-wrap">
+    <div class="roi-header">
+      <div class="sh-eye" style="text-align:left; margin-bottom:8px;">Your Numbers</div>
+      <h2>Estimated monthly return.</h2>
+    </div>
+    <div class="roi-body">
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <label>Your Industry</label>
+          <select id="industry" onchange="calc()">
+            <option value="professional">Professional Services / Consulting</option>
+            <option value="financial">Accounting / Financial Advisory</option>
+            <option value="insurance">Commercial Insurance</option>
+            <option value="realestate">Commercial Real Estate</option>
+            <option value="hr">HR / Executive Coaching</option>
+            <option value="marketing">Marketing / PR Agency</option>
+            <option value="legal">Law Firm (B2B)</option>
+            <option value="other">Other B2B Services</option>
+          </select>
+        </div>
+        <div class="roi-field">
+          <div class="slider-row">
+            <label>Average Deal Value</label>
+            <span class="slider-val" id="acv-val">$15,000</span>
+          </div>
+          <input type="range" id="acv" min="2000" max="200000" step="1000" value="15000" oninput="updateACV();calc()">
+        </div>
+        <div class="roi-field">
+          <div class="slider-row">
+            <label>Close Rate</label>
+            <span class="slider-val" id="close-val">20%</span>
+          </div>
+          <input type="range" id="closerate" min="5" max="60" step="1" value="20" oninput="updateClose();calc()">
+        </div>
+        <div class="roi-field">
+          <div class="slider-row">
+            <label>Connects Per Day</label>
+            <span class="slider-val" id="sends-val">5</span>
+          </div>
+          <input type="range" id="sends" min="3" max="15" step="1" value="5" oninput="updateSends();calc()">
+        </div>
+      </div>
+      <div class="roi-results">
+        <div class="roi-card">
+          <div class="roi-card-label">Connects Sent / Month</div>
+          <div class="roi-card-value" id="r-sends">110</div>
+          <div class="roi-card-sub">5 per day × 22 working days</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-label">Conversations Started / Month</div>
+          <div class="roi-card-value" id="r-convos">6</div>
+          <div class="roi-card-sub" id="r-convos-sub">30% acceptance × 16% reply rate</div>
+        </div>
+        <div class="roi-card dark">
+          <div class="roi-card-label">Est. Pipeline Generated / Month</div>
+          <div class="roi-card-value" id="r-pipeline">$18,000</div>
+          <div class="roi-card-sub" id="r-pipeline-sub">Based on 20% close rate</div>
+        </div>
+        <div class="roi-card dark">
+          <div class="roi-card-label">Apex vs BDR — Cost Per Meeting</div>
+          <div class="roi-card-value" id="r-cpm">$17 vs $545</div>
+          <div class="roi-card-sub" id="r-cpm-sub">BDR fully loaded at $72K/year</div>
+        </div>
+      </div>
+    </div>
+    <div class="roi-footnote">
+      Benchmarks: 30% connection acceptance · 16% DM reply rate · $100/mo infrastructure · BDR at $72K/yr fully loaded sending ~11 connects/day
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="sh">
+    <div class="sh-eye">Pricing</div>
+    <div class="sh-title">Two options. No surprises.</div>
+  </div>
+  <div class="pricing">
+    <div class="tier">
+      <div class="tier-name">Setup</div>
+      <div class="tier-price">$1,500</div>
+      <div class="tier-note">One-time — you provide the Mac</div>
+      <div class="tier-div"></div>
+      <ul class="tier-list">
+        <li>Remote setup via TeamViewer</li>
+        <li>All 12 deliverables configured</li>
+        <li>Google Sheet live dashboard</li>
+        <li>ICP and prompt setup for your business</li>
+        <li>One 60-minute training session</li>
+        <li>Claude Max — $100/mo paid by you directly</li>
+      </ul>
+    </div>
+    <div class="tier featured">
+      <div class="tier-pill">Most Popular</div>
+      <div class="tier-name">Managed</div>
+      <div class="tier-price">$2,500</div>
+      <div class="tier-note">Setup + $500/mo — fully hands-off</div>
+      <div class="tier-div"></div>
+      <ul class="tier-list">
+        <li>Everything in Setup</li>
+        <li>Mac Mini sourced, configured, and shipped</li>
+        <li>Ongoing prompt tuning as LinkedIn evolves</li>
+        <li>Monthly performance review and ICP refinement</li>
+        <li>Remote troubleshooting via TeamViewer anytime</li>
+        <li>You never think about it — it just runs</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- REQUIREMENTS -->
+  <div class="sh">
+    <div class="sh-eye">What You Need</div>
+    <div class="sh-title">Three things. That's it.</div>
+  </div>
+  <div class="reqs">
+    <div class="req">
+      <div class="req-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="20" height="14" rx="2" stroke="white" stroke-width="1.5"/>
+          <path d="M8 21h8M12 17v4" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h4>A Dedicated Mac</h4>
+      <p>A Mac Mini or spare MacBook left on and connected. Runs 24/7 in the background without touching your main machine. We source and ship one preconfigured on the Managed plan.</p>
+    </div>
+    <div class="req">
+      <div class="req-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/>
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h4>Active LinkedIn Profile</h4>
+      <p>An existing profile with real history and credibility. The profile does the selling — Apex generates the conversations that lead people there.</p>
+    </div>
+    <div class="req">
+      <div class="req-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h4>Claude Max — $100/mo</h4>
+      <p>The only ongoing infrastructure cost. You pay Anthropic directly — no markup, no hidden fees. Cancel anytime. This powers all signal research and automated messaging.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">NJS MGMT</div>
+      <div class="footer-brand-desc">Independent GTM consulting and AI-driven sales infrastructure for B2B businesses. Built by Nate Shelly.</div>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:nate.shelly@njsmgmt.com" class="footer-email">nate.shelly@njsmgmt.com</a>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ24awX8ZLzArKr3LAf86LDOlzzpy9NT8Wi3pFJSjwzIduOquo4Ma7jKjFO5CGNxSnfTjQnHQsrh" target="_blank" class="cta-btn">Book a Call</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 NJS MGMT. All rights reserved.</div>
+    <div class="footer-legal">Results based on live campaign data. Individual results may vary.</div>
+  </div>
+</footer>
+
+<script>
+  const benchmarks = {
+    professional: [0.32, 0.18],
+    financial:    [0.30, 0.17],
+    insurance:    [0.28, 0.15],
+    realestate:   [0.33, 0.19],
+    hr:           [0.35, 0.20],
+    marketing:    [0.34, 0.18],
+    legal:        [0.27, 0.14],
+    other:        [0.30, 0.16],
+  };
+
+  const BDR_ANNUAL = 72000;
+  const WORKING_DAYS = 22;
+  const BDR_DAILY = 11;
+  const APEX_COST = 100;
+
+  function fmt(n) {
+    if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+    if (n >= 1000) return '$' + Math.round(n/1000) + 'K';
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function updateACV() {
+    document.getElementById('acv-val').textContent = fmt(+document.getElementById('acv').value);
+  }
+
+  function updateClose() {
+    document.getElementById('close-val').textContent = document.getElementById('closerate').value + '%';
+  }
+
+  function updateSends() {
+    document.getElementById('sends-val').textContent = document.getElementById('sends').value;
+  }
+
+  function calc() {
+    const industry = document.getElementById('industry').value;
+    const acv = +document.getElementById('acv').value;
+    const closeRate = +document.getElementById('closerate').value / 100;
+    const sendsDay = +document.getElementById('sends').value;
+    const [ar, rr] = benchmarks[industry];
+
+    const sendsMonth = sendsDay * WORKING_DAYS;
+    const convos = Math.round(sendsMonth * ar * rr);
+    const pipeline = convos * closeRate * acv;
+
+    const apexCpm = convos > 0 ? Math.round(APEX_COST / convos) : 0;
+    const bdrConvos = Math.round(BDR_DAILY * WORKING_DAYS * ar * rr);
+    const bdrCpm = bdrConvos > 0 ? Math.round((BDR_ANNUAL / 12) / bdrConvos) : 0;
+
+    document.getElementById('r-sends').textContent = sendsMonth;
+    document.getElementById('r-convos').textContent = convos;
+    document.getElementById('r-convos-sub').textContent =
+      Math.round(ar * 100) + '% acceptance × ' + Math.round(rr * 100) + '% reply rate';
+    document.getElementById('r-pipeline').textContent = fmt(pipeline);
+    document.getElementById('r-pipeline-sub').textContent =
+      'Based on ' + Math.round(closeRate * 100) + '% close rate · ' + (convos * closeRate).toFixed(1) + ' deals/mo';
+    document.getElementById('r-cpm').textContent =
+      (convos > 0 ? '$' + apexCpm : '—') + ' vs $' + bdrCpm;
+  }
+
+  updateACV(); updateClose(); updateSends(); calc();
+</script>
+
+</body>
+</html>
