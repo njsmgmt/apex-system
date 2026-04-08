@@ -995,7 +995,7 @@
             <label>Average Deal Value</label>
             <span class="slider-val" id="acv-val">$15,000</span>
           </div>
-          <input type="range" id="acv" min="2000" max="200000" step="1000" value="15000" oninput="updateACV();calc()">
+          <input type="range" id="acv" min="500" max="200000" step="500" value="15000" oninput="updateACV();calc()">
         </div>
         <div class="roi-field">
           <div class="slider-row">
@@ -1186,7 +1186,8 @@
     const acv = +document.getElementById('acv').value;
     const closeRate = +document.getElementById('closerate').value / 100;
     const sendsDay = +document.getElementById('sends').value;
-    const [ar, rr] = benchmarks[industry];
+    const bench = benchmarks[industry] || benchmarks['other'];
+    const [ar, rr] = bench;
 
     const sendsMonth = sendsDay * WORKING_DAYS;
     const convos = Math.round(sendsMonth * ar * rr);
@@ -1220,6 +1221,8 @@
     var el = document.getElementById(id);
     if (el) { el.href = 'mailto:' + u + '@' + d; el.textContent = u + '@' + d; }
   });
+  // Initialize calculator on page load
+  if (typeof calc === 'function') { updateACV(); updateClose(); updateSends(); calc(); }
 </script>
 </body>
 </html>
